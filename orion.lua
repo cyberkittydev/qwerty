@@ -150,18 +150,19 @@ local function MakeElement(ElementName, ...)
 end
 
 local function SetProps(Element, Props)
-    table.foreach(Props, function(Property, Value)
+    for Property, Value in pairs(Props) do
         Element[Property] = Value
-    end)
+    end
     return Element
 end
 
 local function SetChildren(Element, Children)
-    table.foreach(Children, function(_, Child)
+    for _, Child in pairs(Children) do
         Child.Parent = Element
-    end)
+    end
     return Element
 end
+
 
 local function Round(Number, Factor)
     local Result = math.floor(Number / Factor + (math.sign(Number) * 0.5)) * Factor
