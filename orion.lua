@@ -12,12 +12,12 @@ local OrionLib = {
     Flags = {},
     Themes = {
         Default = {
-            Main = Color3.fromRGB(230, 246, 255),
-            Second = Color3.fromRGB(205, 236, 255),
-            Stroke = Color3.fromRGB(179, 227, 255),
-            Divider = Color3.fromRGB(154, 218, 255),
-            Text = Color3.fromRGB(103, 199, 255),
-            TextDark = Color3.fromRGB(128, 208, 255)
+            Main = Color3.fromRGB(57, 3, 18),
+            Second = Color3.fromRGB(76, 4, 24),
+            Stroke = Color3.fromRGB(95, 4, 30),
+            Divider = Color3.fromRGB(95, 4, 30),
+            Text = Color3.fromRGB(240, 240, 240),
+            TextDark = Color3.fromRGB(150, 150, 150)
         }
     },
     SelectedTheme = "Default",
@@ -394,7 +394,7 @@ function OrionLib:MakeNotification(NotificationConfig)
     spawn(function()
         NotificationConfig.Name = NotificationConfig.Name or "Notification"
         NotificationConfig.Content = NotificationConfig.Content or "Test"
-        NotificationConfig.Image = NotificationConfig.Image or "rbxassetid://4384403532"
+        NotificationConfig.Image = NotificationConfig.Image or ""
         NotificationConfig.Time = NotificationConfig.Time or 15
 
         local NotificationParent = SetProps(MakeElement("TFrame"), {
@@ -403,23 +403,23 @@ function OrionLib:MakeNotification(NotificationConfig)
             Parent = NotificationHolder
         })
 
-        local NotificationFrame = SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(25, 25, 25), 0, 10), {
+        local NotificationFrame = SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(57, 3, 18), 0, 10), {
             Parent = NotificationParent,
             Size = UDim2.new(1, 0, 0, 0),
             Position = UDim2.new(1, -55, 0, 0),
             BackgroundTransparency = 0,
             AutomaticSize = Enum.AutomaticSize.Y
         }), {
-            MakeElement("Stroke", Color3.fromRGB(93, 93, 93), 1.2),
+            MakeElement("Stroke", Color3.fromRGB(57, 3, 18), 1.2),
             MakeElement("Padding", 12, 12, 12, 12),
             SetProps(MakeElement("Image", NotificationConfig.Image), {
-                Size = UDim2.new(0, 20, 0, 20),
+                Size = UDim2.new(0, 0, 0, 0),
                 ImageColor3 = Color3.fromRGB(240, 240, 240),
                 Name = "Icon"
             }),
             SetProps(MakeElement("Label", NotificationConfig.Name, 15), {
                 Size = UDim2.new(1, -30, 0, 20),
-                Position = UDim2.new(0, 30, 0, 0),
+                Position = UDim2.new(0, 0, 0, 0),
                 Font = Enum.Font.GothamBold,
                 Name = "Title"
             }),
@@ -508,7 +508,7 @@ function OrionLib:MakeWindow(WindowConfig)
             Size = UDim2.new(1, 0, 1, -50)
         }), {
             MakeElement("List"),
-            MakeElement("Padding", 8, 0, 0, 8)
+            MakeElement("Padding", 16, -20, 0, 16)
         }), "Divider")
 
     AddConnection(TabHolder.UIListLayout:GetPropertyChangedSignal("AbsoluteContentSize"), function()
@@ -620,8 +620,8 @@ function OrionLib:MakeWindow(WindowConfig)
     local MainWindow = AddThemeObject(
         SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
             Parent = Orion,
-            Position = UDim2.new(0.5, -307, 0.5, -172),
-            Size = UDim2.new(0, 615, 0, 344),
+            Position = UDim2.new(0.5, -300, 0.5, -200),
+            Size = UDim2.new(0, 600, 0, 400),
             ClipsDescendants = true
         }), {
             --SetProps(MakeElement("Image", "rbxassetid://3523728077"), {
@@ -685,7 +685,7 @@ function OrionLib:MakeWindow(WindowConfig)
     AddConnection(MinimizeBtn.MouseButton1Up, function()
         if Minimized then
             TweenService:Create(MainWindow, TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
-                { Size = UDim2.new(0, 615, 0, 344) }):Play()
+                { Size = UDim2.new(0, 600, 0, 400) }):Play()
             MinimizeBtn.Ico.Image = "rbxassetid://7072719338"
             wait(.02)
             MainWindow.ClipsDescendants = false
@@ -763,8 +763,8 @@ function OrionLib:MakeWindow(WindowConfig)
                 ImageTransparency = 0.4,
                 Name = "Ico"
             }), "Text"),
-            AddThemeObject(SetProps(MakeElement("Label", TabConfig.Name, 14), {
-                Size = UDim2.new(1, -35, 1, 0),
+            AddThemeObject(SetProps(MakeElement("Label", TabConfig.Name, 16), {
+                Size = UDim2.new(1, -50, 1, 0),
                 Position = UDim2.new(0, 35, 0, 0),
                 Font = Enum.Font.GothamSemibold,
                 TextTransparency = 0.4,
