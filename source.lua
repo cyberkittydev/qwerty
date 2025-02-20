@@ -128,15 +128,15 @@ function library:Window(name)
 	UiWindow.Active = true
 	Dragify(UiWindow)
 
-	if xOffset > 600 then
-		xOffset = 20
+	if xOffset > 709 then
+		xOffset = 250
 	else
-		xOffset = xOffset + 200
+		xOffset = xOffset + 230
 	end
-	if yOffset > 169 then
-		yOffset = 20
+	if yOffset > 94 then
+		yOffset = 45
 	else
-		yOffset = yOffset + 50
+		yOffset = yOffset + 25
 	end
 
 	local Header = Instance.new("Frame")
