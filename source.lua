@@ -128,10 +128,13 @@ function library:Window(name)
 	UiWindow.Active = true
 	Dragify(UiWindow)
 
+	print("xoffset before: " .. tostring(xOffset))
 	if xOffset > 479 then
 		xOffset = 250
+		print("xoffset reset: " .. tostring(xOffset))
 	else
 		xOffset = xOffset + 230
+		print("xoffset after: " .. tostring(xOffset))
 	end
 	if yOffset > 69 then
 		yOffset = 45
