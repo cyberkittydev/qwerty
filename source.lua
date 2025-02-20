@@ -129,14 +129,14 @@ function library:Window(name)
 	Dragify(UiWindow)
 
 	print("xoffset before: " .. tostring(xOffset))
-	if xOffset > 479 then
+	if xOffset > 709 then
 		xOffset = 250
 		print("xoffset reset: " .. tostring(xOffset))
 	else
 		xOffset = xOffset + 230
 		print("xoffset after: " .. tostring(xOffset))
 	end
-	if yOffset > 69 then
+	if yOffset > 94 then
 		yOffset = 45
 	else
 		yOffset = yOffset + 25
