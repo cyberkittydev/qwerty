@@ -129,12 +129,12 @@ function library:Window(name)
 	Dragify(UiWindow)
 
 	if xOffset > 709 then
-		xOffset = 250
+		xOffset = 20
 	else
 		xOffset = xOffset + 230
 	end
 	if yOffset > 94 then
-		yOffset = 45
+		yOffset = 20
 	else
 		yOffset = yOffset + 25
 	end
